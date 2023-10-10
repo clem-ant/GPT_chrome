@@ -1,15 +1,30 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "UrbanDictionary Search",
   "short_name": "Search",
   "description": "Searches for the selected text in the UrbanDictionary",
   "version": "0.0.1",
   "minimum_chrome_version": "38",
   "permissions": [
-    "contextMenus", 
-    "tabs"],
+    "contextMenus",
+    "tabs",
+    "activeTab",
+    "scripting"
+  ],
   "icons": {
     "16": "assets/search.png"
   },
-  "background": {"page": "background.html"}
+  "background": {
+    "service_worker": "main.js"
+  },
+  "commands": {
+    "searchGptWithOpenAI": {
+      "suggested_key": {
+        "default": "Ctrl+I",
+        "mac": "Command+I"
+      },
+      "description": "test",
+      "global": true
+    }
+  }
 }
